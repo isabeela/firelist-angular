@@ -38,6 +38,7 @@ export class AuthService {
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((value) => {
         console.log('logado com Google');
+        this.currentUserEmail = value.user.email;
       })
 
       .catch(function (error) {
