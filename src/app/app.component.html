@@ -30,6 +30,7 @@
 
   <button (click)="logout()">Sair</button>
   <div>
-    <div>conteúdo ao logar-se</div>
+    <a [routerLink]="['/']">Início</a> |
+    <a [routerLink]="['firelist']">Lista do Firebase</a>
   </div>
 </div>

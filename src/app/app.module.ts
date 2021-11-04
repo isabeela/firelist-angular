@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-// imports google firebase//
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
@@ -10,10 +10,17 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { AuthService } from './auth.service';
 
+import { FirelistComponent } from './firelist/firelist.component';
+import { IndexComponent } from './index/index.component';
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot([
+      { path: '', component: IndexComponent },
+      { path: 'firelist', component: FirelistComponent },
+    ]),
     AngularFireModule.initializeApp({
       apiKey: 'AIzaSyBwPl3lfpzet1oqx8f3em_ghcJtxwbyIjc',
       authDomain: 'angularlist-d53cd.firebaseapp.com',
@@ -24,7 +31,12 @@ import { AuthService } from './auth.service';
     }),
     AngularFireAuthModule,
   ],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    FirelistComponent,
+    IndexComponent,
+  ],
   bootstrap: [AppComponent],
   providers: [AuthService],
 })
