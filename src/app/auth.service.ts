@@ -8,21 +8,21 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
-
+  currentUserEmail: string;
   authError: any;
-  email: string;
 
   constructor(public firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
   }
 
-  loginE(email, password: string) {
+  loginE(email: string, password: string) {
     let thisService = this;
     thisService.authError = null;
     this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then((value) => {
         console.log('logado com email e senha');
+        this.currentUserEmail = value.user.email;
       })
       .catch(function (error) {
         console.log(error.message);
