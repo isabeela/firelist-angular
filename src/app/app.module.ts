@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { AuthService } from './auth.service';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { FirelistComponent } from './firelist/firelist.component';
 import { IndexComponent } from './index/index.component';
@@ -30,6 +31,7 @@ import { IndexComponent } from './index/index.component';
       appId: '1:39091109327:web:dd6ed6bf065683f0ea26ba',
     }),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
   ],
   declarations: [
     AppComponent,
