@@ -10,12 +10,13 @@ export class AuthService {
   user: Observable<firebase.User>;
 
   authError: any;
+  email: string;
 
   constructor(public firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
   }
 
-  loginE(email: string, password: string) {
+  loginE(email, password: string) {
     let thisService = this;
     thisService.authError = null;
     this.firebaseAuth

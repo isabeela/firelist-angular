@@ -12,6 +12,7 @@ import { AuthService } from '../auth.service';
 export class FirelistComponent implements OnInit {
   nome: string;
   idade: number;
+  email: string;
 
   listRef: AngularFireList<any>;
   list: Observable<any[]>;
@@ -36,7 +37,7 @@ export class FirelistComponent implements OnInit {
     this.listRef.push({
       nome: this.nome,
       idade: this.idade,
-      email: this.authService.firebaseAuth,
+     
     });
     this.nome = null;
     this.idade = null;
