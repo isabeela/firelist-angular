@@ -1,0 +1,35 @@
+<div *ngIf="!(authService.user | async)">
+  <form class="login">
+    <legend>Login</legend>
+    <hr />
+    <div>Email</div>
+    <input
+      type="text"
+      name="email"
+      [(ngModel)]="email"
+      placeholder="nome@example.com"
+    />
+    <div>Senha</div>
+    <input type="password" name="password" [(ngModel)]="password" />
+    <hr />
+    <button class="btn-email" (click)="loginE()">Entrar com Email</button>
+    <button class="btn-google" (click)="loginG()">Entrar com Google</button>
+  </form>
+</div>
+<!--email: email@email.com.br  senha: 1234567890 -->
+
+<div
+  *ngIf="authService.authError"
+  style="padding:10px; background-color:rgb(212, 63, 63); color:white"
+>
+  {{ authService.authError }}
+</div>
+
+<div class="sucess-auth" *ngIf="authService.user | async">
+  Logado como <b>{{ (authService.user | async)?.email }}</b>
+
+  <button (click)="logout()">Sair</button>
+  <div>
+    <div>conteúdo ao logar-se</div>
+  </div>
+</div>
